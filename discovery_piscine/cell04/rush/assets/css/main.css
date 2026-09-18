@@ -1,0 +1,337 @@
+/**
+* Template Name: Lonely
+* Template URL: https://bootstrapmade.com/free-html-bootstrap-template-lonely/
+* Updated: Aug 07 2024 with Bootstrap v5.3.3
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
+/*--------------------------------------------------------------
+# Font & Color Variables
+# Help: https://bootstrapmade.com/color-system/
+--------------------------------------------------------------*/
+/* Fonts */
+:root {
+  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Playfair Display",  sans-serif;
+  --nav-font: "Poppins",  sans-serif;
+}
+
+/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+:root { 
+  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+  --default-color: #5a656e; /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #2c4964; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #8925b4; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+}
+
+/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+:root {
+  --nav-color: #5a656e;  /* The default color of the main navmenu links */
+  --nav-hover-color: #af1ec9; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #5a656e; /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #7e29b3; /*s Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+}
+
+/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+
+.light-background {
+  --background-color: #f2f6f9;
+  --surface-color: #ffffff;
+}
+
+.dark-background {
+  --background-color: #060606;
+  --default-color: #ffffff;
+  --heading-color: rgb(255, 255, 255);
+  --surface-color: #252525;
+  --contrast-color: #ffffff;
+}
+
+/* Smooth scroll */
+:root {
+  scroll-behavior: smooth;
+}
+
+/*--------------------------------------------------------------
+# General Styling & Shared Classes
+--------------------------------------------------------------*/
+body {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-family: var(--default-font);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+}
+
+/*--------------------------------------------------------------
+# Global Header
+--------------------------------------------------------------*/
+.header {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 15px 0;
+  transition: all 0.5s;
+  z-index: 997;
+}
+
+.header .logo {
+  line-height: 1;
+}
+
+.header .logo img {
+  max-height: 32px;
+  margin-right: 8px;
+}
+
+.header .logo h1 {
+  font-size: 30px;
+  margin: 0;
+  font-weight: 700;
+  color: var(--heading-color);
+}
+
+.scrolled .header {
+  box-shadow: 0px 0 18px rgba(250, 249, 249, 0.8);
+}
+
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  overflow: hidden;
+  background: var(--background-color);
+  transition: all 0.6s ease-out;
+}
+
+#preloader:before {
+  content: "";
+  position: fixed;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  border: 6px solid #ffffff;
+  border-color: var(--accent-color) transparent var(--accent-color) transparent;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: animate-preloader 1.5s linear infinite;
+}
+
+@keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*--------------------------------------------------------------
+# Disable aos animation delay on mobile devices
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+  [data-aos-delay] {
+    transition-delay: 0 !important;
+  }
+}
+
+/*--------------------------------------------------------------
+# Global Sections
+--------------------------------------------------------------*/
+section,
+.section {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 60px 0;
+  scroll-margin-top: 90px;
+  overflow: clip;
+}
+
+@media (max-width: 1199px) {
+
+  section,
+  .section {
+    scroll-margin-top: 66px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Global Section Titles
+--------------------------------------------------------------*/
+.section-title {
+  padding-bottom: 60px;
+  position: relative;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.section-title h2:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--accent-color);
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.section-title p {
+  margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+.hero {
+  background: url(../img/bg1.gif) top center no-repeat;
+  background-size: cover;
+  width: 100%;
+  min-height: 90vh;
+  position: relative;
+  padding: 120px 0 60px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero:before {
+  content: "";
+  background: color-mix(in srgb, var(--background-color), transparent 90%);
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.hero img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 3;
+}
+
+.hero h2 {
+  margin: 0;
+  font-size: 47px;
+  font-weight: 700;
+  line-height: 56px;
+}
+
+.hero p {
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  margin: 10px 0 0 0;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 640px) {
+  .hero h1 {
+    font-size: 30px;
+    line-height: 36px;
+  }
+}
+
+.hero .btn-scroll {
+  transition: 0.4s;
+  color: color-mix(in srgb, var(--default-color), transparent 60%);
+  display: block;
+  margin-top: 30px;
+  animation: btn-up-down 1s ease-in-out infinite alternate-reverse both;
+}
+
+.hero .btn-scroll i {
+  font-size: 48px;
+}
+
+.hero .btn-scroll:hover {
+  color: var(--accent-color);
+}
+
+@keyframes btn-up-down {
+  0% {
+    transform: translateY(5px);
+  }
+
+  100% {
+    transform: translateY(-5px);
+  }
+}
+.at{
+  margin-top: +25px;
+}
+.pt{
+  padding: 12px 28px;
+  margin : 10px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#btn-jj {
+  background-color: #c159db;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(179, 59, 234, 0.641);
+}
+
+#btn-jj:hover {
+  background-color: #56137d;
+  border-color: #c159db;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(193, 89, 219, 0.4);
+}
+
+#btn-fs {
+  background-color: #30abd4;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(56, 188, 232, 0.758);
+}
+
+#btn-fs:hover {
+  background-color: #1a5963;
+  border-color: #30abd4;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(48, 171, 212, 0.4);
+}
